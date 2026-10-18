@@ -7,8 +7,8 @@ Pick a persona, inspect a transparent ledger, and let the app build a surveillan
 ## Run it
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open http://localhost:5173
@@ -27,7 +27,7 @@ The Vite dev server proxies API requests, so there are no CORS issues and the ke
 ## Build for deployment
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Vite writes a static site to `dist/`.
