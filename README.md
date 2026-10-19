@@ -24,7 +24,9 @@ cp .env.example .env
 
 The Vite dev server proxies API requests, so there are no CORS issues and the key never touches the browser.
 
-## Build for deployment
+The production build makes no API calls, so the live mode only works under `pnpm dev`.
+
+## Build and deploy
 
 ```bash
 pnpm build
@@ -32,10 +34,27 @@ pnpm build
 
 Vite writes a static site to `dist/`.
 
+The site is served by a Cloudflare Worker as static assets. To check that build in the Worker runtime:
+
+```bash
+pnpm run dev:worker
+```
+
+This builds and serves `dist/` at http://127.0.0.1:8787.
+
+To deploy:
+
+```bash
+pnpm run deploy
+```
+
+The Worker has no public hostname yet (workers.dev and preview URLs are off). A domain is added to `cloudflare.config.ts` once it's picked.
+
 ## Tech stack
 
 - React 19 + TypeScript
 - Vite 8 with Tailwind CSS v4
+- Cloudflare Workers (static assets)
 - Anthropic API (optional, proxied through Vite dev server)
 - Zero runtime dependencies beyond React
 
