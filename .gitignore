@@ -10,3 +10,6 @@ dist-ssr
 
 .DS_Store
 .env
+
+# Cloudflare local state
+.wrangler
