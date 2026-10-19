@@ -32,15 +32,7 @@ The production build makes no API calls, so the live mode only works under `pnpm
 pnpm build
 ```
 
-Vite writes a static site to `dist/`.
-
-The site is served by a Cloudflare Worker as static assets. To check that build in the Worker runtime:
-
-```bash
-pnpm run dev:worker
-```
-
-This builds and serves `dist/` at http://127.0.0.1:8787.
+The Cloudflare Vite plugin writes the Worker's static assets to `.cloudflare/output/`; `pnpm dev` already runs in the Worker runtime.
 
 To deploy:
 
